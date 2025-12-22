@@ -1,0 +1,117 @@
+*{
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #222;
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+}
+
+#login{
+    display: grid;
+}
+
+#products{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 30%);
+}
+
+.products_api{
+    display: grid;
+    align-items: center;
+}
+
+.products_api>img{
+    width: 30%;
+}
+
+.products_api>span,
+.products_api>img{
+    justify-self: center;
+}
+
+.add_car{
+    width: 50%;
+    height: 33px;
+    color: white;
+    background-color: #201c1c;
+    justify-self: center;
+}
+
+.add_car:hover{
+    transition: 1s;
+    background-color: white;
+    color: rgb(42, 68, 68);
+}
+
+/*Modal button*/
+#modal_user{
+    border: none;
+    background: transparent;
+}
+
+#modal_user:hover{
+    transition: 2s;
+    border-bottom: 3px solid white;
+}
+/*End modal Button*/
+
+/*Modal*/
+#modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal_content{
+    background-color: black;
+    margin: 20% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    height: 20%;
+}
+
+#register_content{
+    display: grid;
+}
+
+#name,#passwords,#email{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+#close, #register{
+    background-color: #1f1d19de;
+    color: white;
+    font-weight: bold;
+    width: 20%;
+    justify-self: center;
+}
+
+#close:hover, #close:focus,
+#register:hover, #register:focus{
+    background-color: white;
+    color: #201c1c;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*End Modal*/
