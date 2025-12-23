@@ -7,6 +7,11 @@ export function registerModal(){
     const modal_register = document.getElementById('modal_register')
     const register_user = document.getElementById('register')
 
+    const registerAlert = document.getElementById('register_alert');
+    const registerInputName = document.getElementById('register_user_name_input')
+    const registerInputPass = document.getElementById('register_user_pass_input')
+    const registerInputMail = document.getElementById('register_user_mail_input')
+
     closeRegisterModal.addEventListener('click', event => {
         event.preventDefault()
         modal_register.style.display = 'none'
@@ -19,7 +24,16 @@ export function registerModal(){
     
     register_user.addEventListener('click', event => {
         event.preventDefault()
-        registerUser()
+
+        if(registerInputName.value.trim() === '' || 
+            registerInputPass.value.trim() === '' ||
+            registerInputMail.value.trim() === ''
+        ){
+            registerAlert.textContent = `No puede haber espacios vacios`
+            return
+        }
+
+        registerUser(registerAlert)
     })
 }
 

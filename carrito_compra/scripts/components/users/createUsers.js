@@ -1,5 +1,3 @@
-
-
 export function createUsers(stateUsers, index, divPadre){
     if(stateUsers === 'invitado'){
         const register = divPadre.appendChild(document.createElement('button'))

@@ -1,4 +1,7 @@
-const url = 'https://fakestoreapi.com/products' 
+const url = 'https://fakestoreapi.com/products'
+
+
+
 export default async function fakeStore(){
     try{
         const response = await fetch(url)
