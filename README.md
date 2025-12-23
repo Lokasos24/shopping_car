@@ -6,7 +6,7 @@
 ---
 
 ## ⚙️ Principales funcionalidades
-- Añadir un usuario
+- Añadir un usuario ✅
 - Añadir al carrito el producto seleccionado
 - Sumar el valor total de los productos del carrito
 - Eliminar producto del carrito
