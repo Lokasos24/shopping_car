@@ -1,9 +1,9 @@
 import { createUsers } from "./users/createUsers.js";
 import { createProducts } from "./products/createProducts.js";
 
-export function renderUsers(stateUsers){
+export function renderUsers(stateUsers, index){
     const divPadre = document.getElementById('login')
-    createUsers(divPadre, stateUsers)
+    createUsers(stateUsers, index, divPadre)
 }
 
 export function renderProducts(data){

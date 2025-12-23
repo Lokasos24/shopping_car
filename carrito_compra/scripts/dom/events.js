@@ -18,6 +18,7 @@ export function registerModal(){
     })
     
     register_user.addEventListener('click', event => {
+        event.preventDefault()
         registerUser()
     })
 }
@@ -56,6 +57,6 @@ export function loginModal(){
             return
         }
 
-        loginSession()
+        loginSession(loginAlert)
     })
 }

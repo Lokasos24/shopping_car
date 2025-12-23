@@ -1,5 +1,4 @@
 import { renderUsers } from "../components/renderUi.js";
-import { saveUser } from "./storage/saveStorage.js";
 
 const stateUsers = []
 
@@ -18,18 +17,27 @@ export function registerUser(){
         name: modalInputName.value,
         password: modalInputPass.value,
         mail: modalInputMail.value,
-        login: false
+        login: false,
+        products: [],
     })
 }
 
-export function loginSession(userState){
+export function loginSession(loginAlert){
     const name = document.getElementById('login_username_input')
     const password = document.getElementById('login_password_input')
-
-    console.log(stateUsers)
-
-    userState.findIndex(user => {
-        user.name.toLowerCase() === name.value.toLowerCase() &&
-        user.password.toLowerCase() === password.value.toLowerCase()
+    const verifyUser = stateUsers.find(user => {
+        return user.name.toLowerCase() == name.value.toLowerCase() &&
+        user.password.toLowerCase() == password.value.toLowerCase()
     })
+
+    if(verifyUser === undefined){
+        loginAlert.textContent = `Nombre o contraseña incorrectos`
+    }
+
+    const index = stateUsers.findIndex(user => {
+        return user.name.toLowerCase() == name.value.toLowerCase() &&
+        user.password.toLowerCase() == password.value.toLowerCase()
+    })
+
+    renderUsers(stateUsers, index)
 }
