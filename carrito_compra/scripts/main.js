@@ -4,13 +4,12 @@ import fakeStore from "./services/apiProducts.js"
 import { loadState } from "./services/storage/saveStorage.js"
 
 const state = loadState()
-const invitado = 'invitado'
 
 async function main(){
     renderUsers(state)
-    registerModal()
-    loginModal()
-    endSesion()
+    registerModal(state)
+    loginModal(state)
+    endSesion(state)
     const data = await fakeStore()
     renderProducts(data)
 }

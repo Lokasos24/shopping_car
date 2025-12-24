@@ -1,6 +1,7 @@
 import { loginSession, registerUser, closeSesion } from "../services/usersState.js"
 
-export function registerModal(){
+export function registerModal(state){
+    if(typeof state.sesion !== null || typeof state.sesion !== undefined) return 
     const modalRegisterBtn = document.getElementById('modal_user')
     const closeRegisterModal = document.getElementById('close_register')
     const modal_register = document.getElementById('modal_register')
@@ -34,7 +35,8 @@ export function registerModal(){
     })
 }
 
-export function loginModal(){
+export function loginModal(state){
+    if(!state.sesion) return
     const modalLoginBtn = document.getElementById('modal_login_button')
     const closeModalLogin = document.getElementById('close_login')
     const modalLogin= document.getElementById('modal_login')
@@ -43,7 +45,6 @@ export function loginModal(){
     const loginAlert = document.getElementById('login_alert')
 
     closeModalLogin.addEventListener('click', event => {
-        event.preventDefault()
         loginAlert.textContent = ``
         modalLogin.style.display = 'none'
     })
@@ -54,7 +55,6 @@ export function loginModal(){
     })
 
     loginUser.addEventListener('click', event => {
-        event.preventDefault()
         const name = document.getElementById('login_username_input')
         const password = document.getElementById('login_password_input')
 
@@ -72,16 +72,15 @@ export function loginModal(){
     })
 }
 
-export function endSesion(){
-
-    document.addEventListener('click', event => {
-        event.preventDefault()
-        const closeBtn = document.getElementById('close_sesion')
+export function endSesion(state){
+    if(state.sesion !== null || state.sesion !== undefined) return
+    const closeBtn = document.getElementById('close_sesion')
+    closeBtn.addEventListener('click', event => {
 
         if(!closeBtn) return
 
         if(event.target.id === closeBtn.id){
-            closeSesion(event.target)
+            closeSesion()
         }
     })
 }

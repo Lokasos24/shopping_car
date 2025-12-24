@@ -8,19 +8,18 @@ export function registerUser(registerAlert){
     const modalInputPass = document.getElementById('register_user_pass_input')
     const modalInputMail = document.getElementById('register_user_mail_input')
 
-    const verifyUser = stateUsers.find(user => user.mail === modalInputMail.value)
+    const verifyUser = stateUsers.users.find(user => user.mail === modalInputMail.value)
 
     if(verifyUser){
         registerAlert.textContent = `Ya hay un usuario registrado con ese mail`
         return
     }
 
-    stateUsers.push({
+    stateUsers.users.push({
         id: crypto.randomUUID(),
         name: modalInputName.value,
         password: modalInputPass.value,
         mail: modalInputMail.value,
-        login: false,
         products: [],
     })
 
@@ -31,7 +30,7 @@ export function loginSession(loginAlert){
     const name = document.getElementById('login_username_input')
     const password = document.getElementById('login_password_input')
 
-    const verifyUser = stateUsers.find(user => {
+    const verifyUser = stateUsers.users.find(user => {
         return user.name.toLowerCase() == name.value.toLowerCase() &&
         user.password.toLowerCase() == password.value.toLowerCase()
     })
@@ -40,21 +39,16 @@ export function loginSession(loginAlert){
         return loginAlert.textContent = `Nombre o contraseña incorrectos`
     }
 
-    const index = stateUsers.findIndex(user => user.id === verifyUser.id)
-
-    stateUsers[index].login = true
+    stateUsers.sesion = verifyUser.id
+    const userSesion = stateUsers.users.find(user => user.id === stateUsers.sesion)
 
     saveUser(stateUsers)
-    renderUsers(stateUsers, index)
+    renderUsers(userSesion)
 }
 
-export function closeSesion(target){
-    const findId = target.previousElementSibling
-    const findUser = stateUsers.find(user => user.id === findId.dataset.id)
+export function closeSesion(){
+    stateUsers.sesion = null
 
-    if(!findUser) return
-    
-    findUser.login = false
     saveUser(stateUsers)
-    renderUsers(stateUsers)
+    renderUsers(stateUsers.sesion)
 }
