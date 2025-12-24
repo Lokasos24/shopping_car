@@ -2,12 +2,13 @@ import { createUsers } from "./users/createUsers.js";
 import { createProducts } from "./products/createProducts.js";
 import { guess } from "./users/createGuess.js";
 
-export function renderUsers(userSesion){
+export function renderUsers(session, user){
     const divPadre = document.getElementById('login')
-    if(userSesion){
+
+    if(!session){
         guess(divPadre)
     }else{
-        createUsers(userSesion, divPadre)
+        createUsers(user, divPadre)
     }
 }
 

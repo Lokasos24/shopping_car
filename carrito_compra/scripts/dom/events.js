@@ -1,10 +1,11 @@
 import { loginSession, registerUser, closeSesion } from "../services/usersState.js"
 
 export function registerModal(state){
-    if(typeof state.sesion !== null || typeof state.sesion !== undefined) return 
+    if(state.session !== null && state.session !== undefined) return
+
     const modalRegisterBtn = document.getElementById('modal_user')
     const closeRegisterModal = document.getElementById('close_register')
-    const modal_register = document.getElementById('modal_register')
+    const modalRegister = document.getElementById('modal_register')
     const register_user = document.getElementById('register')
 
     const registerAlert = document.getElementById('register_alert');
@@ -14,12 +15,12 @@ export function registerModal(state){
 
     closeRegisterModal.addEventListener('click', event => {
         event.preventDefault()
-        modal_register.style.display = 'none'
+        modalRegister.style.display = 'none'
     })
 
     modalRegisterBtn.addEventListener('click', event => {
         event.preventDefault()
-        modal_register.style.display = 'block'
+        modalRegister.style.display = 'block'
     })
     
     register_user.addEventListener('click', event => {
@@ -36,7 +37,8 @@ export function registerModal(state){
 }
 
 export function loginModal(state){
-    if(!state.sesion) return
+    if(state.session !== null && state.session !== undefined) return
+
     const modalLoginBtn = document.getElementById('modal_login_button')
     const closeModalLogin = document.getElementById('close_login')
     const modalLogin= document.getElementById('modal_login')
@@ -45,6 +47,7 @@ export function loginModal(state){
     const loginAlert = document.getElementById('login_alert')
 
     closeModalLogin.addEventListener('click', event => {
+        event.preventDefault()
         loginAlert.textContent = ``
         modalLogin.style.display = 'none'
     })
@@ -73,13 +76,16 @@ export function loginModal(state){
 }
 
 export function endSesion(state){
-    if(state.sesion !== null || state.sesion !== undefined) return
     const closeBtn = document.getElementById('close_sesion')
+
+    if(!closeBtn) return
+
     closeBtn.addEventListener('click', event => {
 
         if(!closeBtn) return
 
         if(event.target.id === closeBtn.id){
+            location.reload()
             closeSesion()
         }
     })

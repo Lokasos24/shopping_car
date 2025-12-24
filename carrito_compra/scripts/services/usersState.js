@@ -39,16 +39,26 @@ export function loginSession(loginAlert){
         return loginAlert.textContent = `Nombre o contraseña incorrectos`
     }
 
-    stateUsers.sesion = verifyUser.id
-    const userSesion = stateUsers.users.find(user => user.id === stateUsers.sesion)
+    stateUsers.session = verifyUser.id
+    const userSesion = stateUsers.users.find(user => user.id === stateUsers.session)
 
     saveUser(stateUsers)
-    renderUsers(userSesion)
+    renderUsers(userSesion.session, userSesion)
 }
 
 export function closeSesion(){
-    stateUsers.sesion = null
+    stateUsers.session = null
 
     saveUser(stateUsers)
-    renderUsers(stateUsers.sesion)
+    renderUsers(stateUsers.session)
+}
+
+export function loadSession(state){
+    if(state.session !== null){
+        const findUser = state.users.find(user => user.id === state.session)
+
+        return renderUsers(state.session, findUser)
+    }
+
+    renderUsers(state.session)
 }

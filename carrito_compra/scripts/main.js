@@ -1,12 +1,13 @@
-import { renderProducts, renderUsers } from "./components/renderUi.js"
+import { renderProducts } from "./components/renderUi.js"
 import { endSesion, loginModal, registerModal } from "./dom/events.js"
 import fakeStore from "./services/apiProducts.js"
 import { loadState } from "./services/storage/saveStorage.js"
+import { loadSession } from "./services/usersState.js"
 
 const state = loadState()
 
 async function main(){
-    renderUsers(state)
+    loadSession(state)
     registerModal(state)
     loginModal(state)
     endSesion(state)
