@@ -4,3 +4,8 @@ export function saveUser(state){
 
     return savedUsers
 }
+
+export function loadState(){
+    const storedUsers = localStorage.getItem(`login`)
+    return storedUsers ? JSON.parse(storedUsers) : []
+}

@@ -1,5 +1,4 @@
-import { loginSession, registerUser } from "../services/usersState.js"
-
+import { loginSession, registerUser, closeSesion } from "../services/usersState.js"
 
 export function registerModal(){
     const modalRegisterBtn = document.getElementById('modal_user')
@@ -23,8 +22,6 @@ export function registerModal(){
     })
     
     register_user.addEventListener('click', event => {
-        event.preventDefault()
-
         if(registerInputName.value.trim() === '' || 
             registerInputPass.value.trim() === '' ||
             registerInputMail.value.trim() === ''
@@ -72,5 +69,19 @@ export function loginModal(){
         }
 
         loginSession(loginAlert)
+    })
+}
+
+export function endSesion(){
+
+    document.addEventListener('click', event => {
+        event.preventDefault()
+        const closeBtn = document.getElementById('close_sesion')
+
+        if(!closeBtn) return
+
+        if(event.target.id === closeBtn.id){
+            closeSesion(event.target)
+        }
     })
 }

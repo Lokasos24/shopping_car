@@ -1,11 +1,7 @@
 import { renderUsers } from "../components/renderUi.js";
-import { saveUser } from "./storage/saveStorage.js";
+import { saveUser, loadState } from "./storage/saveStorage.js";
 
-const stateUsers = []
-
-export function loginState(){
-    renderUsers(stateUsers)
-}
+const stateUsers = loadState()
 
 export function registerUser(registerAlert){
     const modalInputName = document.getElementById('register_user_name_input')
@@ -40,7 +36,7 @@ export function loginSession(loginAlert){
         user.password.toLowerCase() == password.value.toLowerCase()
     })
 
-    if(verifyUser === undefined){
+    if(!verifyUser){
         return loginAlert.textContent = `Nombre o contraseña incorrectos`
     }
 
@@ -48,5 +44,17 @@ export function loginSession(loginAlert){
 
     stateUsers[index].login = true
 
+    saveUser(stateUsers)
     renderUsers(stateUsers, index)
+}
+
+export function closeSesion(target){
+    const findId = target.previousElementSibling
+    const findUser = stateUsers.find(user => user.id === findId.dataset.id)
+
+    if(!findUser) return
+    
+    findUser.login = false
+    saveUser(stateUsers)
+    renderUsers(stateUsers)
 }

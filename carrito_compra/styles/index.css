@@ -56,13 +56,15 @@ header{
 }
 
 #modal_user,
-#modal_login_button{
+#modal_login_button,
+#close_sesion{
     border: none;
     background: transparent;
 }
 
 #modal_user:hover,
-#modal_login_button:hover{
+#modal_login_button:hover,
+#close_sesion:hover{
     transition: 2s;
     border-bottom: 3px solid white;
 }
