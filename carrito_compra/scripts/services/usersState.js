@@ -3,23 +3,19 @@ import { saveUser, loadState } from "./storage/saveStorage.js";
 
 const stateUsers = loadState()
 
-export function registerUser(registerAlert){
-    const modalInputName = document.getElementById('register_user_name_input')
-    const modalInputPass = document.getElementById('register_user_pass_input')
-    const modalInputMail = document.getElementById('register_user_mail_input')
-
-    const verifyUser = stateUsers.users.find(user => user.mail === modalInputMail.value)
+export function registerUser(data){
+    const verifyUser = stateUsers.users.find(user => user.mail === data.mail)
 
     if(verifyUser){
-        registerAlert.textContent = `Ya hay un usuario registrado con ese mail`
+        data.errors.textContent = `Ya hay un usuario registrado con ese mail`
         return
     }
 
     stateUsers.users.push({
         id: crypto.randomUUID(),
-        name: modalInputName.value,
-        password: modalInputPass.value,
-        mail: modalInputMail.value,
+        name: data.name,
+        password: data.pass,
+        mail: data.mail,
         products: [],
     })
 

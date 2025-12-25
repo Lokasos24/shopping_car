@@ -1,40 +1,4 @@
-import { loginSession, registerUser, closeSesion } from "../services/usersState.js"
-
-export function registerModal(state){
-    if(state.session !== null && state.session !== undefined) return
-
-    const modalRegisterBtn = document.getElementById('modal_user')
-    const closeRegisterModal = document.getElementById('close_register')
-    const modalRegister = document.getElementById('modal_register')
-    const register_user = document.getElementById('register')
-
-    const registerAlert = document.getElementById('register_alert');
-    const registerInputName = document.getElementById('register_user_name_input')
-    const registerInputPass = document.getElementById('register_user_pass_input')
-    const registerInputMail = document.getElementById('register_user_mail_input')
-
-    closeRegisterModal.addEventListener('click', event => {
-        event.preventDefault()
-        modalRegister.style.display = 'none'
-    })
-
-    modalRegisterBtn.addEventListener('click', event => {
-        event.preventDefault()
-        modalRegister.style.display = 'block'
-    })
-    
-    register_user.addEventListener('click', event => {
-        if(registerInputName.value.trim() === '' || 
-            registerInputPass.value.trim() === '' ||
-            registerInputMail.value.trim() === ''
-        ){
-            registerAlert.textContent = `No puede haber espacios vacios`
-            return
-        }
-
-        registerUser(registerAlert)
-    })
-}
+import { loginSession, closeSesion } from "../services/usersState.js"
 
 export function loginModal(state){
     if(state.session !== null && state.session !== undefined) return
