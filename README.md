@@ -39,11 +39,12 @@
 
 ---
 
-## Arquitectura y flujo de estado
+## Aprendizaje sobre la marcha
 1. **Estado central (`state`)**: Contiene todos los usuarios y la sesión activa. Esto asegura que hay una fuente de verdad.
 2. **UI pura (`renderUsers`)**: Recibe únicamente el usuario activo o `null` y se encarga solamente de actualizar la interfaz.
 3. **Flujo unidireccional desde `main()`**: El `main` actua solo como orquestador, pasando el estado a eventos y a la UI. Esto mantiene un flujo claro.
 4. **Eventos y mutaciones controladas**: Funciones como login, logout o registro mutan el estado y luego disparan la UI para que se actualize.
+5. **Componentes reutilizables**: Componentes que se llaman cuando se necesitan hechos a mano con propiedades internas que pueden ser llamadas externamente.
 
 Mientras avanzo con el proyecto, estoy aprendiendo por qué **es mejor tener un solo estado cambiante**, cómo evitar inconsistencias con flags dispersos y cómo centralizar la lógica de sesión.
 
