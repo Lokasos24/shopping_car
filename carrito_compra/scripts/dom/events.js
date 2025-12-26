@@ -39,7 +39,7 @@ export function loginModal(state){
     })
 }
 
-export function endSesion(state){
+export function endSesion(){
     const closeBtn = document.getElementById('close_sesion')
 
     if(!closeBtn) return

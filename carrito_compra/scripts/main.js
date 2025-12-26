@@ -11,7 +11,7 @@ async function main(){
     loadSession(state)
     openModalRegister()
     loginModal(state)
-    endSesion(state)
+    endSesion()
     const data = await fakeStore()
     renderProducts(data)
 }

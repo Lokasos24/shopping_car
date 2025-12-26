@@ -71,9 +71,9 @@ export function modalRegister(){
             inputMail.value.trim() === ''
         ){ 
             spanErrors.textContent = `Los campos no pueden estar vacios`
-            return false
+            return validate
         }
-    
+
         return {
             errors: spanErrors,
             name: inputName.value.trim(),

@@ -57,13 +57,15 @@ header{
 
 .modal-user,
 .modal-login-button,
+.shoping-car,
 #close_sesion{
     border: none;
     background: transparent;
 }
 
-#modal_user:hover,
-#modal_login_button:hover,
+.modal-user:hover,
+.modal-login-button:hover,
+.shoping-car,
 #close_sesion:hover{
     transition: 2s;
     border-bottom: 3px solid white;
