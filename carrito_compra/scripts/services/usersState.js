@@ -67,7 +67,6 @@ export function addToCar(product){
     if(findUserIndex === -1) return
 
     const findElement = stateUsers.users[findUserIndex].products.some(value => value.id === product.id)
-    console.log(findElement)
 
     if(findElement){
         const findIndexProduct = stateUsers.users[findUserIndex].products.findIndex(value => value.id === product.id)
