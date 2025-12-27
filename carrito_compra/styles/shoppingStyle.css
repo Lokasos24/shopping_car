@@ -21,12 +21,16 @@ header{
     justify-items: center;
 }
 
-.close-session{
+.close-session,
+.go-home{
     background: transparent;
     border: none;
+    text-decoration: none;
 }
 
-.close-session:hover{
+.close-session:hover,
+.go-home:hover{
+    text-decoration: none;
     border-bottom: 1px solid white;
 }
 

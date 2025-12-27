@@ -12,6 +12,11 @@ export function emptyCar(divPather, userName){
     closeSesion.className = `close-session`
     closeSesion.textContent = `Cerrar sesión`
 
+    const home = login.appendChild(document.createElement('a'))
+    home.href = `../index.html`
+    home.textContent = `Inicio`
+    home.className = `go-home`
+
     const emtpyProducts = divPather.appendChild(document.createElement('h1'))
     emtpyProducts.className = `empty-title`
     emtpyProducts.textContent = `No hay productos en el carrito`
@@ -28,6 +33,11 @@ export function createCar(products, userName, divPather){
     closeSesion.id = `closeSesion`
     closeSesion.className = `close-session`
     closeSesion.textContent = `Cerrar sesión`
+
+    const home = login.appendChild(document.createElement('a'))
+    home.href = `../index.html`
+    home.textContent = `Inicio`
+    home.className = `go-home`
 
     products.forEach(value => {
         divPather.appendChild(cardToShoppingCard(

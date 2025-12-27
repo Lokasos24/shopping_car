@@ -65,13 +65,24 @@ export function addToCar(product){
     const findUserIndex = stateUsers.users.findIndex(user => user.id === stateUsers.session)
 
     if(findUserIndex === -1) return
-    
-    stateUsers.users[findUserIndex].products.push({
-        name: product.title,
-        price: product.price,
-        image: product.image,
-        cuantity: 1,
-    })
 
-    saveUser(stateUsers)
+    const findElement = stateUsers.users[findUserIndex].products.some(value => value.id === product.id)
+    console.log(findElement)
+
+    if(findElement){
+        const findIndexProduct = stateUsers.users[findUserIndex].products.findIndex(value => value.id === product.id)
+        stateUsers.users[findUserIndex].products[findIndexProduct].cuantity += 1
+        saveUser(stateUsers)
+    }else{
+        
+        stateUsers.users[findUserIndex].products.push({
+            id: product.id,
+            name: product.title,
+            price: product.price,
+            image: product.image,
+            cuantity: 1,
+        })
+
+        saveUser(stateUsers)
+    }
 }
