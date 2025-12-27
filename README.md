@@ -39,7 +39,7 @@
 
 ---
 
-## Aprendizaje sobre la marcha
+## 🚗 Aprendizaje sobre la marcha
 1. **Estado central (`state`)**: Contiene todos los usuarios y la sesión activa. Esto asegura que hay una fuente de verdad.
 2. **UI pura (`renderUsers`)**: Recibe únicamente el usuario activo o `null` y se encarga solamente de actualizar la interfaz.
 3. **Flujo unidireccional desde `main()`**: El `main` actua solo como orquestador, pasando el estado a eventos y a la UI. Esto mantiene un flujo claro.

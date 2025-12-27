@@ -26,14 +26,15 @@ export function createCar(products, userName, divPather){
 
     const closeSesion = login.appendChild(document.createElement('button'))
     closeSesion.id = `closeSesion`
-    closeSesion.className = `close-sesion`
+    closeSesion.className = `close-session`
     closeSesion.textContent = `Cerrar sesión`
 
     products.forEach(value => {
         divPather.appendChild(cardToShoppingCard(
-            value.title,
+            value.name,
             value.image,
-            value.price
+            value.price,
+            value.cuantity,
         ))
     })
 

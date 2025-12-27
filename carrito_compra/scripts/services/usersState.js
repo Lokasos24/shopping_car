@@ -1,4 +1,4 @@
-import { renderUsers } from "../components/renderUi.js";
+import { renderShoppingCar, renderUsers } from "../components/renderUi.js";
 import { saveUser, loadState } from "./storage/saveStorage.js";
 
 const stateUsers = loadState()
@@ -57,4 +57,21 @@ export function loadSession(state){
     }
 
     renderUsers(state.session)
+}
+
+export function addToCar(product){
+    if(!stateUsers.session) return
+
+    const findUserIndex = stateUsers.users.findIndex(user => user.id === stateUsers.session)
+
+    if(findUserIndex === -1) return
+    
+    stateUsers.users[findUserIndex].products.push({
+        name: product.title,
+        price: product.price,
+        image: product.image,
+        cuantity: 1,
+    })
+
+    saveUser(stateUsers)
 }

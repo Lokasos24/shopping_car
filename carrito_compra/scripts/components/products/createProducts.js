@@ -2,6 +2,7 @@ export function createProducts(data, divPadre){
     divPadre.replaceChildren()
     data.forEach(products => {
         const contentDiv = divPadre.appendChild(document.createElement('div'))
+        contentDiv.dataset.id = products.id
         contentDiv.className = 'products_api'
         
         const nameSpan = contentDiv.appendChild(document.createElement('span'))
@@ -14,7 +15,7 @@ export function createProducts(data, divPadre){
         price.textContent = `${products.price} USD`
 
         const button = contentDiv.appendChild(document.createElement('button'))
-        button.dataset.id = products.id
+        button.dataset.id = `addToCar`
         button.className = `add_car`
         button.textContent = `Agregar al carrito`
 

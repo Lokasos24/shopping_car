@@ -61,11 +61,12 @@ header{
 #close_sesion{
     border: none;
     background: transparent;
+    text-decoration: none;
 }
 
 .modal-user:hover,
 .modal-login-button:hover,
-.shoping-car,
+.shoping-car:hover,
 #close_sesion:hover{
     transition: 2s;
     border-bottom: 3px solid white;

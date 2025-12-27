@@ -1,4 +1,5 @@
 import { renderProducts } from "./components/renderUi.js"
+import { addProductToCar } from "./dom/eventCar.js"
 import { openModalRegister } from "./dom/eventModal.js"
 import { endSesion, loginModal } from "./dom/events.js"
 import fakeStore from "./services/apiProducts.js"
@@ -14,6 +15,7 @@ async function main(){
     endSesion()
     const data = await fakeStore()
     renderProducts(data)
+    addProductToCar(state, data)
 }
 
 main()
