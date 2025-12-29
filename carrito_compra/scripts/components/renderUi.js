@@ -2,6 +2,7 @@ import { createUsers } from "./users/createUsers.js";
 import { createProducts } from "./products/createProducts.js";
 import { guess } from "./users/createGuess.js";
 import { createCar, emptyCar } from "./products/shoppingCar.js";
+import { cuantityCard } from "./carProducts/cuantityCard/cuantity.js";
 
 export function renderUsers(session, user){
     const divPather = document.getElementById('login')
@@ -25,4 +26,8 @@ export function renderShoppingCar(products, userName){
     }else{
         createCar(products, userName, divPather)
     }
+}
+
+export function renderCuantity(product){
+    cuantityCard(product.cuantity, product.id)
 }

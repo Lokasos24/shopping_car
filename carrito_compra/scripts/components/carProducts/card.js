@@ -1,7 +1,8 @@
-import { sumButton, restButton } from "../buttons/butons.js"
+import { cuantityCard } from "./cuantityCard/cuantity.js"
 
 export function cardToShoppingCard(id, name, img, price, cuantity){
     const divCar = document.createElement('div')
+    divCar.id = `content-pather-cards`
     divCar.className = `content-cards`
 
     const cardName = divCar.appendChild(document.createElement('span'))
@@ -17,16 +18,9 @@ export function cardToShoppingCard(id, name, img, price, cuantity){
     cardPrice.textContent = `${price} USD`
 
     const divCuantity = divCar.appendChild(document.createElement('div'))
-    divCuantity.id = `cuantity`
-    divCuantity.className = `cuantity-product-car`
-
-    divCuantity.appendChild(sumButton(id))
-
-    const cardCuantity = divCuantity.appendChild(document.createElement('span'))
-    cardCuantity.className = `cuantity-main-product-car`
-    cardCuantity.textContent = `${cuantity}`
-
-    divCuantity.appendChild(restButton(id))
+    divCuantity.id = `cuantityPather`
+    divCuantity.replaceChildren()
+    divCuantity.appendChild(cuantityCard(cuantity, id))
 
     return divCar
 }

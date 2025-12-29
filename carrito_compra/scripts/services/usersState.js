@@ -85,3 +85,29 @@ export function addToCar(product){
         saveUser(stateUsers)
     }
 }
+
+export function sumCuantity(idProduct){
+    if(!stateUsers.session) return
+    
+    const findUser = stateUsers.users.find(user => user.id === stateUsers.session)
+    if(!findUser) return
+    const findProduct = findUser.products.find(prod => prod.id === idProduct)
+    if(!findProduct) return
+    findProduct.cuantity += 1
+
+    saveUser(stateUsers)
+    return findProduct
+}
+
+export function restCuantity(idProduct){
+    if(!stateUsers.session) return
+    
+    const findUser = stateUsers.users.find(user => user.id === stateUsers.session)
+    if(!findUser) return
+    const findProduct = findUser.products.find(prod => prod.id === idProduct)
+    if(!findProduct) return
+    findProduct.cuantity -= 1
+
+    saveUser(stateUsers)
+    return findProduct
+}
