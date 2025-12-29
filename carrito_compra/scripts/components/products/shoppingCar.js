@@ -41,6 +41,7 @@ export function createCar(products, userName, divPather){
 
     products.forEach(value => {
         divPather.appendChild(cardToShoppingCard(
+            value.id,
             value.name,
             value.image,
             value.price,

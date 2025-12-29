@@ -1,4 +1,6 @@
-export function cardToShoppingCard(name, img, price, cuantity){
+import { sumButton, restButton } from "../buttons/butons.js"
+
+export function cardToShoppingCard(id, name, img, price, cuantity){
     const divCar = document.createElement('div')
     divCar.className = `content-cards`
 
@@ -15,21 +17,16 @@ export function cardToShoppingCard(name, img, price, cuantity){
     cardPrice.textContent = `${price} USD`
 
     const divCuantity = divCar.appendChild(document.createElement('div'))
+    divCuantity.id = `cuantity`
     divCuantity.className = `cuantity-product-car`
 
-    const buttonCuantitySum = divCuantity.appendChild(document.createElement('button'))
-    buttonCuantitySum.id = `sum`
-    buttonCuantitySum.className = `sum-rest`
-    buttonCuantitySum.textContent = `+`
+    divCuantity.appendChild(sumButton(id))
 
     const cardCuantity = divCuantity.appendChild(document.createElement('span'))
     cardCuantity.className = `cuantity-main-product-car`
     cardCuantity.textContent = `${cuantity}`
 
-    const buttonCuantityRest = divCuantity.appendChild(document.createElement('button'))
-    buttonCuantityRest.id = `rest`
-    buttonCuantityRest.className = `sum-rest`
-    buttonCuantityRest.textContent = `-`
+    divCuantity.appendChild(restButton(id))
 
     return divCar
 }
