@@ -31,6 +31,7 @@ export function sumRestCuantity(){
         }else if(target.id === 'rest'){
             const brother = target.previousElementSibling
             const productRest = restCuantity(Number(targetPather.dataset.id))
+            if(!productRest) return
             brother.textContent = productRest.cuantity
         }
     })

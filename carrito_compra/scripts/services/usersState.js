@@ -106,6 +106,9 @@ export function restCuantity(idProduct){
     if(!findUser) return
     const findProduct = findUser.products.find(prod => prod.id === idProduct)
     if(!findProduct) return
+
+    if(findProduct.cuantity <= 1) return
+
     findProduct.cuantity -= 1
 
     saveUser(stateUsers)
