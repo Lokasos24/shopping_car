@@ -11,7 +11,7 @@
 - ✅ Mantener la sesión activa.
 - ✅ Cerrar la sesión.
 - ✅ Añadir producto al carrito.
-- ⬜ Sumar valor total del carrito.
+- ✅ Sumar/Restar valor total del carrito.
 - ⬜ Eliminar productos del carrito.
 - ⬜ Comprar productos.
 
