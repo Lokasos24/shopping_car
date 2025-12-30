@@ -65,11 +65,28 @@ main{
     border-radius: 20px;
 }
 
+#total{
+    display: grid;
+    justify-items: center;
+    width: 30%;
+}
+
+.total{
+    align-self: flex-end;
+}
+
 .delete-button{
     background-color: transparent;
 }
 
-.delete-button:hover{
+.buy{
+    background-color: transparent;
+    height: 40px;
+    width: 80px;
+}
+
+.delete-button:hover,
+.buy:hover{
     transition: 2s;
     color: black;
     background-color: white;

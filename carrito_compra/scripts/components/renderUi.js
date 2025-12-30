@@ -3,6 +3,7 @@ import { createProducts } from "./products/createProducts.js";
 import { guess } from "./users/createGuess.js";
 import { createCar, emptyCar } from "./products/shoppingCar.js";
 import { cuantityCard } from "./carProducts/cuantityCard/cuantity.js";
+import { showTotal } from "./total/total.js";
 
 export function renderUsers(session, user){
     const divPather = document.getElementById('login')
@@ -19,13 +20,14 @@ export function renderProducts(data){
     createProducts(data, divPather)
 }
 
-export function renderShoppingCar(products, userName){
+export function renderShoppingCar(products, userName, data){
     const divPather = document.getElementById('products')
     divPather.replaceChildren()
     if(products.length <= 0){
         emptyCar(divPather, userName)
     }else{
         createCar(products, userName, divPather)
+        showTotal(data)
     }
 }
 

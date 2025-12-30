@@ -1,5 +1,5 @@
 import { findUsers } from "../services/shoppingCarService/findUser.js";
-import { addToCar, sumCuantity, restCuantity } from "../services/usersState.js";
+import { addToCar, sumCuantity, restCuantity, delAllProducts } from "../services/usersState.js";
 import { delProduct } from "../services/usersState.js";
 
 export function addProductToCar(state, data){
@@ -45,5 +45,14 @@ export function deleteProduct(){
         const idProduct = parseInt(target.dataset.id)
         const data = delProduct(idProduct)
         findUsers(data)
+    })
+}
+
+export function buyAllProducts(){
+    const catchTotal = document.getElementById('total')
+    catchTotal.addEventListener('click', event => {
+        if(event.target.id !== 'buyAll') return
+        const dataProducts = delAllProducts()
+        findUsers(dataProducts)
     })
 }

@@ -1,5 +1,6 @@
-import { renderShoppingCar, renderUsers } from "../components/renderUi.js";
+import { renderUsers } from "../components/renderUi.js";
 import { saveUser, loadState } from "./storage/saveStorage.js";
+import { showTotal } from "../components/total/total.js";
 
 const stateUsers = loadState()
 
@@ -95,6 +96,7 @@ export function sumCuantity(idProduct){
     if(!findProduct) return
     findProduct.cuantity += 1
 
+    showTotal(stateUsers)
     saveUser(stateUsers)
     return findProduct
 }
@@ -111,6 +113,7 @@ export function restCuantity(idProduct){
 
     findProduct.cuantity -= 1
 
+    showTotal(stateUsers)
     saveUser(stateUsers)
     return findProduct
 }
@@ -124,6 +127,21 @@ export function delProduct(idProduct){
     if(findIndexProduct === -1) return
 
     findUser.products.splice(findIndexProduct, 1)
+
+    showTotal(stateUsers)
+    saveUser(stateUsers)
+    return stateUsers
+}
+
+export function delAllProducts(){
+    if(!stateUsers) return
+
+    const findUser = stateUsers.users.find(user => user.id === stateUsers.session)
+    if(!findUser) return
+
+    findUser.products.splice(0, findUser.products.length)
+
+    showTotal(stateUsers)
     saveUser(stateUsers)
     return stateUsers
 }
