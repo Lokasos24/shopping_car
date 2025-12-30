@@ -1,3 +1,4 @@
+import { deleteProductCar } from "../buttons/butons.js"
 import { cuantityCard } from "./cuantityCard/cuantity.js"
 
 export function cardToShoppingCard(id, name, img, price, cuantity){
@@ -21,6 +22,8 @@ export function cardToShoppingCard(id, name, img, price, cuantity){
     divCuantity.id = `cuantityPather`
     divCuantity.replaceChildren()
     divCuantity.appendChild(cuantityCard(cuantity, id))
+
+    divCar.appendChild(deleteProductCar(`Eliminar`, id))
 
     return divCar
 }

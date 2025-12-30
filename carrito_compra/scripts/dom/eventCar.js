@@ -1,6 +1,6 @@
-import { cuantityCard } from "../components/carProducts/cuantityCard/cuantity.js";
-import { renderCuantity } from "../components/renderUi.js";
+import { findUsers } from "../services/shoppingCarService/findUser.js";
 import { addToCar, sumCuantity, restCuantity } from "../services/usersState.js";
+import { delProduct } from "../services/usersState.js";
 
 export function addProductToCar(state, data){
     if(!state.session) return
@@ -34,5 +34,16 @@ export function sumRestCuantity(){
             if(!productRest) return
             brother.textContent = productRest.cuantity
         }
+    })
+}
+
+export function deleteProduct(){
+    document.addEventListener('click', event => {
+        const target = event.target
+        if(!target.dataset.id) return
+        if(!target.dataset.id.includes('deleteElement')) return
+        const idProduct = parseInt(target.dataset.id)
+        const data = delProduct(idProduct)
+        findUsers(data)
     })
 }

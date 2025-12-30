@@ -21,6 +21,7 @@ export function renderProducts(data){
 
 export function renderShoppingCar(products, userName){
     const divPather = document.getElementById('products')
+    divPather.replaceChildren()
     if(products.length <= 0){
         emptyCar(divPather, userName)
     }else{

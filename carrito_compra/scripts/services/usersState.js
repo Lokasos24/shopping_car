@@ -114,3 +114,16 @@ export function restCuantity(idProduct){
     saveUser(stateUsers)
     return findProduct
 }
+
+export function delProduct(idProduct){
+    if(!stateUsers.session) return
+
+    const findUser = stateUsers.users.find(user => user.id === stateUsers.session)
+    if(!findUser) return
+    const findIndexProduct = findUser.products.findIndex(product => product.id === idProduct)
+    if(findIndexProduct === -1) return
+
+    findUser.products.splice(findIndexProduct, 1)
+    saveUser(stateUsers)
+    return stateUsers
+}

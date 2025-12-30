@@ -16,6 +16,10 @@ header{
     justify-content: space-around;
 }
 
+main{
+    display: flex;
+}
+
 #login{
     display: grid;
     justify-items: center;
@@ -40,13 +44,17 @@ header{
 
 .content-cards{
     display: flex;
-    height: 10%;
+    height: 20%;
     justify-content: space-between;
     align-items: center;
 }
 
+.name-product-car{
+    width: 30%;
+}
+
 .content-cards>img{
-    width: 10%;
+    width: 60px;
 }
 
 .sum-rest{
@@ -55,4 +63,14 @@ header{
     height: 25px;
     width: 25px;
     border-radius: 20px;
+}
+
+.delete-button{
+    background-color: transparent;
+}
+
+.delete-button:hover{
+    transition: 2s;
+    color: black;
+    background-color: white;
 }

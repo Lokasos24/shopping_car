@@ -2,6 +2,7 @@ import { cardToShoppingCard } from "../carProducts/card.js"
 
 export function emptyCar(divPather, userName){
     const login = document.getElementById('login')
+    login.replaceChildren()
 
     const name = login.appendChild(document.createElement('span'))
     name.className = `user-name`
@@ -24,6 +25,7 @@ export function emptyCar(divPather, userName){
 
 export function createCar(products, userName, divPather){
     const login = document.getElementById('login')
+    login.replaceChildren()
 
     const name = login.appendChild(document.createElement('span'))
     name.className = `user-name`

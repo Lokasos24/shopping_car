@@ -15,3 +15,12 @@ export function restButton(){
 
     return restButonDom
 }
+
+export function deleteProductCar(name, id){
+    const deleteButton = document.createElement('button')
+    deleteButton.dataset.id = `${id}deleteElement`
+    deleteButton.className = `delete-button`
+    deleteButton.textContent = `${name}`
+
+    return deleteButton
+}
