@@ -13,7 +13,7 @@
 - ✅ Añadir producto al carrito.
 - ✅ Sumar/Restar valor total del carrito.
 - ✅ Eliminar producto del carrito.
-- ⬜ Comprar productos.
+- ✅ Comprar productos.
 
 ---
 
